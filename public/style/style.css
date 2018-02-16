@@ -1,0 +1,14 @@
+.text-input[type=text] {
+    width: 300px;
+    display: block;
+    margin: 10px 0 20px 0;
+}
+
+.messages {
+    width: 500px;
+    height: 300px;
+    background-color: green; color: white;
+    margin: 10px 0 20px 0;
+    padding: 10px;
+    overflow-y: auto;
+}
