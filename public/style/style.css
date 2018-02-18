@@ -1,9 +1,17 @@
-.text-input[type=text] {
-    width: 300px;
+.label {
     display: block;
+}
+.text-input {
+    width: 300px;
     margin: 10px 0 20px 0;
 }
-
+.button-input {
+    margin: 10px 0 10px -4px;
+    background-color: aqua;
+}
+.button-input--disabled {
+    visibility: hidden;
+}
 .messages {
     width: 500px;
     height: 300px;
