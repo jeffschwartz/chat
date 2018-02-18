@@ -1,22 +1,25 @@
 .label {
     display: block;
 }
-.text-input {
+.handle {
     width: 300px;
     margin: 10px 0 20px 0;
 }
-.button-input {
+.message {
+    width: 514px;
+}
+.message-submit-button {
     margin: 10px 0 10px -4px;
     background-color: aqua;
 }
-.button-input--disabled {
+.message-submit-button--disabled {
     visibility: hidden;
 }
 .messages {
     width: 500px;
     height: 300px;
     background-color: green; color: white;
-    margin: 10px 0 20px 0;
+    margin: 10px 0 0 0;
     padding: 10px;
     overflow-y: auto;
 }

@@ -10,11 +10,11 @@
 <body>
     <h1>Socket IO Chat</h1>
     <label for="handle" class="label">Handle</label>
-    <input type="text" class="text-input" id="handle" placeholder="Enter your handle">
-    <label for="message" class="label">Message Log</label>
+    <input type="text" class="handle" id="handle" placeholder="Enter your handle">
+    <label for="messages" class="label">Message Log</label>
     <div class="messages" id="messages"></div>
-    <input type="text"  class="text-input" id="message" placeholder="Enter your chat message">
-    <input type="submit" class="button-input" value="&rightarrow;" disabled>
+    <input type="text"  class="message" id="message" placeholder="Enter your chat message">
+    <button type="button" class="message-submit-button" id="button">&rightarrow;</button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
     <script src="script/app.js"></script>
 </body>
