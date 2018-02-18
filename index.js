@@ -18,4 +18,8 @@ io = socket(server);
 
 io.on("connection", socket => {
     console.log("Client made socket connection", socket.id);
+    socket.on("message", data => {
+        console.log(data);
+        socket.broadcast.emit("message", data);
+    });
 });

@@ -27,14 +27,18 @@
     elButton.addEventListener("click", event => {
         console.log("button clicked!");
         elMessages.innerHTML += "<br>Me: " + elMessage.value;
+        socket.emit("message", { handle: elHandle.value, message: elMessage.value });
         elMessage.value = "";
         toggleButtonDisabled();
     });
 
     // setup socket
-    socket = io("http://localhost:4000");
+    socket = io();
     socket.on("connect", () => {
         console.log("client connected to socket");
+    });
+    socket.on("message", data => {
+        elMessages.innerHTML += "<br>" + data.handle + ": " + data.message;
     });
 
     // toggle the button
