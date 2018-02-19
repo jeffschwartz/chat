@@ -8,14 +8,8 @@
     // toggle button enabled/disabled depending on handle & message value lengths
     let toggleButtonDisabled = () => {
         let enabled = !!elHandle.value.length && !!elMessage.value.length;
-        switch (enabled) {
-        case true:
-            elButton.className = "message-submit-button";
-            break;
-        case false:
-            elButton.className = "message-submit-button message-submit-button--disabled";
-            break;
-        }
+        elButton.className = enabled ? "message-submit-button"
+            : "message-submit-button message-submit-button--disabled";
         elButton.disabled = !enabled;
     };
 
