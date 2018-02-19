@@ -18,8 +18,15 @@
 .messages {
     width: 500px;
     height: 300px;
-    background-color: green; color: white;
+    background-color: green;
     margin: 10px 0 0 0;
     padding: 10px;
     overflow-y: auto;
 }
+.messages__my-message {
+    color: white;
+}
+.messages__other-message {
+    color: yellow;
+}
+
