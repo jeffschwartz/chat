@@ -18,14 +18,17 @@
         let s;
         let html;
 
+        s = "class=\"messages__message-container";
+        s += data.handle === "me" ? "\"" : " messages__message-container--other\"";
+        html = "<div " + s + ">";
         s = "class=\"messages__message";
         s += data.handle === "me" ? " messages__my-message\"" : " messages__other-message\"";
-        html = "<div class=\"messages__message-container\">";
         html += "<ul " + s + ">";
         html += "<li><span>" + data.handle + "</span>&nbsp;<span>" + new Date(data.timestamp).toString() + "</span></li>";
         html += "<ul " + s + ">";
         html += "<li><span>" + data.message + "</span></li>";
         html += "</ul></ul>";
+        html += "</div>";
         html += "</div>";
         return html;
     };

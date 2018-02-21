@@ -33,7 +33,10 @@
     float: left;
     clear: left;
 }
-.messages__message-container * .messages__message-container {
+.messages__message-container--other {
+    float: right;
+}
+.messages__message-container + .messages__message-container {
     margin-top: 10px;
 }
 .messages__message {
