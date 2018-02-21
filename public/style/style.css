@@ -9,7 +9,7 @@
     margin: 10px 0 20px 0;
 }
 .message {
-    width: 514px;
+    width: 500px;
 }
 .message-submit-button {
     margin: 10px 0 10px -4px;
@@ -26,8 +26,20 @@
     padding: 10px;
     overflow-y: auto;
 }
+.messages__message-container {
+    border: solid 5px blueviolet;
+    border-radius: 10px;
+    padding: 10px;
+    float: left;
+    clear: left;
+}
+.messages__message-container * .messages__message-container {
+    margin-top: 10px;
+}
 .messages__message {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 .messages__my-message {
     color: white;
