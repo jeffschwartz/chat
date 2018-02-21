@@ -13,17 +13,37 @@
         elButton.disabled = !enabled;
     };
 
+    // format html from message data
+    let formatMessage = data => {
+        let s;
+        let html;
+
+        s = "class=\"messages__message";
+        s += data.handle === "me" ? " messages__my-message\"" : " messages__other-message\"";
+        html = "<ul " + s + ">";
+        html += "<li><span>" + data.handle + "</span>&nbsp;<span>" + new Date(data.timestamp).toString() + "</span></li>";
+        html += "<ul " + s + ">";
+        html += "<li><span>" + data.message + "</span></li>";
+        html += "</ul></ul>";
+        return html;
+    };
+
     // handle input text keypress events
     elHandle.addEventListener("keyup", toggleButtonDisabled);
     elMessage.addEventListener("keyup", toggleButtonDisabled);
 
     // handle button client event
     elButton.addEventListener("click", event => {
-        console.log("button clicked!");
-        elMessages.innerHTML +=
-            "<div class=\"messages__my-message\">Me: " +
-            elMessage.value + "</div>";
-        socket.emit("message", { handle: elHandle.value, message: elMessage.value });
+        let timestamp = Date.now();
+        let message = { handle: "me", message: elMessage.value, timestamp: timestamp };
+
+        elMessages.innerHTML += formatMessage(message);
+        message.handle = elHandle.value;
+        socket.emit("message", {
+            handle: elHandle.value,
+            message: elMessage.value,
+            timestamp: timestamp
+        });
         elMessage.value = "";
         toggleButtonDisabled();
     });
@@ -34,9 +54,7 @@
         console.log("client connected to socket");
     });
     socket.on("message", data => {
-        elMessages.innerHTML +=
-            "<div class=\"messages__other-message\">" +
-            data.handle + ": " + data.message + "</div>";
+        elMessages.innerHTML += formatMessage(data);
     });
 
     // toggle the button
