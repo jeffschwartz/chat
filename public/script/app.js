@@ -5,6 +5,13 @@
     let elButton = document.getElementById("button");
     let socket;
 
+    // scroll messages div to bottom
+    let scrollToBottom = el => {
+        setTimeout(function () {
+            el.scrollTop = el.scrollHeight;
+        }, 100);
+    };
+
     // toggle button enabled/disabled depending on handle & message value lengths
     let toggleButtonDisabled = () => {
         let enabled = !!elHandle.value.length && !!elMessage.value.length;
@@ -43,6 +50,7 @@
         let message = { handle: "me", message: elMessage.value, timestamp: timestamp };
 
         elMessages.innerHTML += formatMessage(message);
+        scrollToBottom(elMessages);
         message.handle = elHandle.value;
         socket.emit("message", {
             handle: elHandle.value,
@@ -60,6 +68,7 @@
     });
     socket.on("message", data => {
         elMessages.innerHTML += formatMessage(data);
+        scrollToBottom(elMessages);
     });
 
     // toggle the button
