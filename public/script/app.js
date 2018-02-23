@@ -59,6 +59,7 @@
         });
         elMessage.value = "";
         toggleButtonDisabled();
+        elMessage.focus();
     });
 
     // setup socket
