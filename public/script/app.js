@@ -24,6 +24,7 @@
     let formatMessage = data => {
         let s;
         let html;
+        let dateTimeString = Date(data.timestamp).toString();
 
         s = "class=\"messages__message-container";
         s += data.handle === "me" ? "\"" : " messages__message-container--other\"";
@@ -31,7 +32,7 @@
         s = "class=\"messages__message";
         s += data.handle === "me" ? " messages__my-message\"" : " messages__other-message\"";
         html += "<ul " + s + ">";
-        html += "<li><span>" + data.handle + "</span>&nbsp;<span>" + new Date(data.timestamp).toString() + "</span></li>";
+        html += "<li><span class=\"messages__message--handle\">" + data.handle + "</span>&nbsp;<time datetime=\"" + dateTimeString + "\" class=\"messages__message--date-time\">" + dateTimeString + "</time></li>";
         html += "<ul " + s + ">";
         html += "<li><span>" + data.message + "</span></li>";
         html += "</ul></ul>";

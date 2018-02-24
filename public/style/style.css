@@ -50,4 +50,6 @@
 .messages__other-message {
     color: yellow;
 }
-
+.messages__message--date-time, .messages__message--handle {
+    font-size: .75em;
+}
